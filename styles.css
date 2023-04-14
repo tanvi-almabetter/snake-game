@@ -1,0 +1,120 @@
+* {
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #scorebox {
+    position: absolute;
+    top: 10px;
+    right: 200px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  #highscorebox {
+    position: absolute;
+    top: 50px;
+    right: 140px;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  #board {
+    background: url("Wiki-background.png");
+    width: 100vw;
+    height: 98.5vh;
+    border: 5px solid black;
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+  }
+  
+  .head {
+    background: linear-gradient(blue, black);
+    border: 2px solid navy;
+    transform: scale(1.02);
+    border-radius: 5px;
+  }
+  
+  .food {
+    background: linear-gradient(red, orange);
+    border: .25vmin solid black;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    font-size: 2rem;
+  }
+  
+  .snake {
+    background-color: black;
+    border: .25vmin solid whitesmoke;
+    border-radius: 15px;
+    position: relative;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .snake::after {
+    content: attr(data-number);
+    font-size: 0.8rem;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Media queries for different screen sizes */
+  @media only screen and (max-width: 768px) {
+    /* Styles for small screens */
+    #scorebox {
+      right: 20px;
+      font-size: 20px;
+    }
+    #highscorebox {
+      right: 10px;
+      font-size: 20px;
+    }
+    .snake {
+      font-size: 1rem;
+    }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 1024px) {
+    /* Styles for medium screens */
+    #scorebox {
+      right: 100px;
+      font-size: 30px;
+    }
+    #highscorebox {
+      right: 80px;
+      font-size: 30px;
+    }
+    .snake {
+      font-size: 1.5rem;
+    }
+  }
+  
+  @media only screen and (min-width: 1025px) {
+    /* Styles for large screens */
+    #scorebox {
+      right: 200px;
+      font-size: 40px;
+    }
+    #highscorebox {
+      right: 140px;
+      font-size: 40px;
+    }
+    .snake {
+      font-size: 2rem;
+    }
+  }
+  
