@@ -1,9 +1,9 @@
 //game constants and variables
 let inputDir ={x:0 , y:0};
-const foodsound= new Audio('food.wav');
-const gameover= new Audio('gameover.wav');
-const movesound= new Audio('movement.wav');
-const musicsound= new Audio('angrybird.mp3')
+const foodsound= new Audio('audios/food.wav');
+const gameover= new Audio('audios/gameover.wav');
+const movesound= new Audio('audios/movement.wav');
+const musicsound= new Audio('audios/angrybird.mp3')
 let speed=5;
 let score=0;
 let lastPaintTime=0;
@@ -62,16 +62,30 @@ function gameEngine(){
             highscorebox.innerHTML="High Score :"+ highscoreval;
         }
         scorebox.innerHTML= "Score : "+ score;
-        snakearr.unshift({x: snakearr[0].x+ inputDir.x, y: snakearr[0].y+inputDir.y, number: food.number })
+        if(food.number!=10){
+            snakearr.push({
+                x: snakearr[snakearr.length - 1].x - inputDir.x,
+                y: snakearr[snakearr.length - 1].y - inputDir.y,
+                number: food.number,
+            });
+        }
+        if(food.number==10){
+            if (snakearr.length > 2) {
+                snakearr.pop();
+            }
+        }
+        
         let a=2;
         let b=16;
         food= {x: Math.round(a+(b-a)*Math.random()), y: Math.round(a+(b-a)*Math.random()), number: Math.floor(Math.random() * 10) +1};
     }
 
     //moving the snake
-    for(let i=snakearr.length-2; i>=0; i--){
-        snakearr[i+1]={...snakearr[i]};
+    for (let i = snakearr.length - 2; i >= 0; i--) {
+        snakearr[i + 1].x = snakearr[i].x;
+        snakearr[i + 1].y = snakearr[i].y;
     }
+    
     snakearr[0].x += inputDir.x;
     snakearr[0].y += inputDir.y;
 
