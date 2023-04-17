@@ -4,32 +4,43 @@
   }
   
   .body {
+    background: green;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+
+  .box {
+    position: absolute;
+    top: 25px;
+    right: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: 300px;
+  }
   
   #scorebox {
-    position: absolute;
-    top: 10px;
-    right: 200px;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
+    margin-bottom: 20px;
   }
   
   #highscorebox {
-    position: absolute;
-    top: 50px;
-    right: 140px;
-    font-size: 40px;
-    font-weight: bold;
+    font-size: 20px;
   }
   
+  
   #board {
-    background: url("Wiki-background.png");
-    width: 100vw;
-    height: 98.5vh;
+    background: url("../Wiki-background.png");
+    width: 90vmin;
+    height: 92vmin;
     border: 5px solid black;
     display: grid;
     grid-template-rows: repeat(18, 1fr);
@@ -55,11 +66,11 @@
   .snake {
     background-color: black;
     border: .25vmin solid whitesmoke;
-    border-radius: 15px;
+    border-radius: 5px;
     position: relative;
     color: white;
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .snake::after {
@@ -75,6 +86,7 @@
   /* Media queries for different screen sizes */
   @media only screen and (max-width: 768px) {
     /* Styles for small screens */
+    
     #scorebox {
       right: 20px;
       font-size: 20px;
@@ -86,10 +98,14 @@
     .snake {
       font-size: 1rem;
     }
+    .food{
+      font-size: 1rem;
+    }
   }
   
   @media only screen and (min-width: 769px) and (max-width: 1024px) {
     /* Styles for medium screens */
+  
     #scorebox {
       right: 100px;
       font-size: 30px;
@@ -99,6 +115,9 @@
       font-size: 30px;
     }
     .snake {
+      font-size: 1.5rem;
+    }
+    .food{
       font-size: 1.5rem;
     }
   }
@@ -114,6 +133,9 @@
       font-size: 40px;
     }
     .snake {
+      font-size: 2rem;
+    }
+    .food{
       font-size: 2rem;
     }
   }
