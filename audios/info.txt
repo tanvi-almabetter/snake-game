@@ -1,0 +1,3 @@
+food.wav --> this sound is played when the snake eats the food
+gameover.wav --> this sound is played when the snake collides with the boundary or itself
+movement.wav --> this sound is played when the snake moves
